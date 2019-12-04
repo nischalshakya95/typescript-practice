@@ -16,8 +16,14 @@ test('Maximum numbers from array', () => {
 
 test('Does candle and age have same value', () => {
     let birthdayCandle = new BirthdayCandle();
-    expect(birthdayCandle.isCandleEqualToAge(AGE, CANDLES)).toBe(true);
-    expect(birthdayCandle.isCandleEqualToAge(AGE, CANDLES.splice(3, 0))).toBe(false);
+    expect(birthdayCandle.isCandleEqualToAge(AGE, CANDLES)).toBeTruthy();
+    expect(birthdayCandle.isCandleEqualToAge(AGE, CANDLES.splice(3, 0))).toBeFalsy();
+});
+
+test('Does candle and age have same value', () => {
+    let birthdayCandle = new BirthdayCandle();
+    expect(birthdayCandle.getNoOfCandleCanBeBlown(AGE, CANDLES.splice(3, 0)))
+        .toBe('Age and candle does not have same value');
 });
 
 test("Get number of candle that can be blown", () => {
